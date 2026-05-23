@@ -6,11 +6,13 @@
       name="description"
       content="Descubre comida premium para gatos elaborada con ingredientes nutritivos y balanceados. Dale a tu mascota una alimentación saludable y deliciosa."
     />
-    <title>¡Miau! | Comida premium para gatos</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Miau! | Comida premium para gatos</title>
   </head>
   <body>
     <header>
       <nav>
+        <a href="#" class="logo"><img src="img/logo.png" alt="logo" /></a>
         <a href="#">Inicio</a>
         <a href="#">Producto</a>
         <a href="#">Contacto</a>
@@ -18,25 +20,123 @@
     </header>
     <main>
       <section id="hero">
-        <h1>¡Miau! Comida deliciosa, vida más feliz</h1>
-
-        <p>
-          Alimentos completos y balanceados para cada etapa de su vida.
-          Ingredientes de calidad para gatos sanos y llenos de energía.
-        </p>
-
+        <div>
+          <h1 class="titulo-uno">Miau! Comida deliciosa,</h1>
+          <h1 class="titulo-dos">
+            vida más feliz
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-heart"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
+              />
+            </svg>
+          </h1>
+          <p>
+            Alimentos completos y balanceados para cada etapa de su vida.
+            Ingredientes de calidad para gatos sanos y llenos de energía.
+          </p>
+        </div>
         <img
           src="img/hero.png"
           alt="Gato atigrado sentado junto a un plato de comida para gatos en un entorno minimalista"
         />
       </section>
-      <section>
+      <section id="caracteristicas">
         <h2>Características</h2>
-        <ul>
-          <li>Ingredientes naturales y nutritivos</li>
-          <li>Alimento balanceado para gatos de todas las edades</li>
-          <li>Envío rápido y seguro hasta tu hogar</li>
-        </ul>
+        <div class="cards">
+          <article class="card">
+            <img
+              src="img/ingredientes.svg"
+              alt="Icono de ingredientes naturales"
+              width="48"
+              height="48"
+            />
+
+            <h3>Ingredientes naturales y nutritivos</h3>
+
+            <p>
+              Elaborado con ingredientes seleccionados que aportan proteínas,
+              vitaminas y minerales esenciales para la salud de tu gato.
+            </p>
+          </article>
+
+          <article class="card">
+            <img
+              src="img/balanceado.svg"
+              alt="Icono de alimento balanceado para gatos"
+              width="48"
+              height="48"
+            />
+
+            <h3>Alimento balanceado para gatos de todas las edades</h3>
+
+            <p>
+              Fórmulas adaptadas para gatitos, adultos y gatos senior,
+              asegurando una nutrición completa en cada etapa de su vida.
+            </p>
+          </article>
+
+          <article class="card">
+            <img
+              src="img/envio.svg"
+              alt="Icono de envío rápido"
+              width="48"
+              height="48"
+            />
+
+            <h3>Envío rápido y seguro hasta tu hogar</h3>
+
+            <p>
+              Recibe tus productos de forma rápida y segura con empaques
+              protegidos para mantener la frescura del alimento.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section id="galeria">
+        <h2>Galería</h2>
+
+        <div class="galeria">
+          <figure>
+            <img src="img/royal-canin-cardiac.jpg" alt="Royal Canin Cardiac" />
+            <figcaption>Royal Canin Cardiac</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="img/royal-canin-hypoallergenic.jpg"
+              alt="Royal Canin Hypoallergenic"
+            />
+            <figcaption>Royal Canin Hypoallergenic</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="img/royal-canin-mobility.jpg"
+              alt="Royal Canin Mobility"
+            />
+            <figcaption>Royal Canin Mobility</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="img/royal-canin-sensitivity-control.png"
+              alt="Royal Canin Sensitivity Control"
+            />
+            <figcaption>Royal Canin Sensitivity Control</figcaption>
+          </figure>
+        </div>
       </section>
       <section id="contacto">
         <h2>Contáctanos</h2>
@@ -58,19 +158,32 @@
       </section>
     </main>
     <footer>
-      <p>Contacto: contacto@miempresa.com</p>
-      <a href="#" aria-label="Escríbenos al WhatsApp">
-        <img src="img/whatsapp.svg" alt="" width="32" height="32" />
-      </a>
-      <a href="#" aria-label="Síguenos en Facebook">
-        <img src="img/facebook.svg" alt="" width="32" height="32" />
-      </a>
-      <a href="#" aria-label="Síguenos en Instagram">
-        <img src="img/instagram.svg" alt="" width="32" height="32" />
-      </a>
-      <a href="#" aria-label="Síguenos en LinkedIn">
-        <img src="img/linkedin.svg" alt="" width="32" height="32" />
-      </a>
+      <div class="footer-principal">
+        <p>Contacto: contacto@miempresa.com</p>
+
+        <div class="redes">
+          <a href="#" aria-label="Escríbenos al WhatsApp">
+            <img src="img/whatsapp.svg" alt="" width="32" height="32" />
+          </a>
+
+          <a href="#" aria-label="Síguenos en Facebook">
+            <img src="img/facebook.svg" alt="" width="32" height="32" />
+          </a>
+
+          <a href="#" aria-label="Síguenos en Instagram">
+            <img src="img/instagram.svg" alt="" width="32" height="32" />
+          </a>
+
+          <a href="#" aria-label="Síguenos en LinkedIn">
+            <img src="img/linkedin.svg" alt="" width="32" height="32" />
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-legal">
+        <a href="#">Términos y Condiciones</a>
+        <a href="#">Política de Privacidad</a>
+      </div>
     </footer>
   </body>
 </html>

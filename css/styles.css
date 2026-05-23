@@ -1,0 +1,271 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #1a1a1a;
+  background-color: #f9f2ef;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #ff7a59;
+}
+
+header nav .logo {
+  margin-right: auto;
+}
+
+header nav .logo img {
+  width: 120px;
+  height: auto;
+  display: block;
+}
+
+#hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+#hero img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+#hero .titulo-dos {
+  color: #e98d75;
+}
+
+#caracteristicas {
+  padding: 2rem;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.card {
+  flex-basis: 280px;
+  flex-grow: 1;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fbf7f4;
+  text-align: center;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+#galeria {
+  padding: 32px;
+  text-align: center;
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.galeria figure {
+  flex: 0 0 100%;
+  margin: 0;
+}
+
+.galeria img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.galeria img:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+.galeria figcaption {
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+#contacto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+#contacto form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+#contacto label {
+  font-weight: 600;
+}
+
+#contacto input {
+  padding: 0.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font: inherit;
+}
+
+#contacto button {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #e98d75;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+#contacto button:hover {
+  background: #ff7a59;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: #f3ece4;
+  border-top: 1px solid #e6ddd3;
+}
+
+.footer-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.redes {
+  display: flex;
+  gap: 1rem;
+}
+
+.redes a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.redes a:hover {
+  transform: translateY(-2px);
+  background-color: #e98d75;
+}
+
+.redes img {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-legal {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e6ddd3;
+  flex-wrap: wrap;
+}
+
+.footer-legal a {
+  text-decoration: none;
+  color: #666666;
+  font-size: 0.875rem;
+}
+
+.footer-legal a:hover {
+  color: #ff7a59;
+}
+
+/* ===== TABLET (640px en adelante) ===== */
+@media (min-width: 640px) {
+  h1 {
+    font-size: 3rem;
+  }
+  #contacto form {
+    max-width: 600px;
+  }
+  .galeria figure {
+    flex: 0 0 calc(50% - 4px);
+  }
+}
+
+/* ===== ESCRITORIO (1024px en adelante) ===== */
+@media (min-width: 1024px) {
+  #hero {
+    flex-direction: row;
+    text-align: left;
+  }
+  #hero img {
+    max-width: 50%;
+  }
+  #hero p {
+    max-width: 80%;
+  }
+  .galeria figure {
+    flex: 0 0 calc(25% - 6px);
+  }
+  .footer-principal {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
