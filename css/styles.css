@@ -5,6 +5,9 @@
 }
 
 :root {
+  /* Tipografía */
+  --font-text: system-ui, -apple-system, sans-serif;
+
   /* ===== Colores principales ===== */
   --color-primary: #E98D75;
   --color-primary-dark: #FF7A59;
@@ -17,6 +20,7 @@
   --color-bg: #F9F2EF;
   --color-surface: #FBF7F4;
   --color-footer: #F3ECE4;
+  --color-bg-soft: #f5f5f5;    
 
   /* ===== Texto ===== */
   --color-text: #1A1A1A;
@@ -35,9 +39,10 @@
   --shadow-hover: rgba(233, 141, 117, 0.3);
 
   /* ===== Border radius ===== */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-12: 12px;
 
   /* ===== Transiciones ===== */
   --transition-fast: 0.2s ease;
@@ -46,7 +51,7 @@
 }
 
 body {
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-text);
   line-height: 1.5;
   color: var(--color-text);
   background-color: var(--color-bg);
@@ -122,7 +127,7 @@ h1 {
   flex-grow: 1;
   padding: 1rem;
   border: 1px solid var(--color-border-light);
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background: var(--color-surface);
   text-align: center;
   transition:
@@ -156,7 +161,7 @@ h1 {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 4px;
+  border-radius: var(--radius-4);
   transition:
     transform var(--transition-normal),
     opacity var(--transition-normal);
@@ -194,7 +199,7 @@ h1 {
   padding: 2rem;
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   box-shadow: 0 4px 12px var(--shadow-sm);
 }
 
@@ -207,7 +212,7 @@ h1 {
 #contacto textarea {
   padding: 0.75rem;
   border: 1px solid var(--color-border-input);
-  border-radius: 6px;
+  border-radius: var(--radius-6);
   font: inherit;
   background-color: var(--color-text-light);
 }
@@ -230,7 +235,7 @@ h1 {
   background: var(--color-primary);
   color: var(--color-text-light);
   border: none;
-  border-radius: 6px;
+  border-radius: var(--radius-6);
   font-weight: 600;
   cursor: pointer;
   transition:
@@ -326,7 +331,6 @@ footer {
   padding: 24px;
   background: #fff;
   height: 300px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
