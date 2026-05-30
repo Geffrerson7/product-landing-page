@@ -169,17 +169,52 @@
       <section id="contacto">
         <h2>Contáctanos</h2>
         <form>
-          <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" placeholder="Ej.: Michi Aventurero" />
+          <label for="nombre">Nombre (mín. 3 caracteres)</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            required
+            minlength="3"
+            placeholder="Ej.: Michi Aventurero"
+          />
 
           <label for="email">Correo electrónico</label>
-          <input type="email" id="email" placeholder="Ej.: michi@bigotes.com" />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Ej.: michi@bigotes.com"
+          />
+
+          <label for="telefono">Teléfono (9 dígitos)</label>
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            pattern="[0-9]{9}"
+            required
+          />
+
+          <label for="motivo">Motivo del contacto</label>
+          <select id="motivo" name="motivo" required>
+            <option value="">Selecciona un motivo</option>
+            <option value="consulta">Consulta</option>
+            <option value="reclamo">Reclamo</option>
+            <option value="sugerencia">Sugerencia</option>
+          </select>
 
           <label for="mensaje">Mensaje</label>
           <textarea
             id="mensaje"
             placeholder="Escribe aqui un mensaje..."
           ></textarea>
+
+          <label>
+            <input type="checkbox" id="acepto" name="acepto" required />
+            Acepto los términos y condiciones
+          </label>
 
           <button type="submit">Enviar</button>
         </form>
