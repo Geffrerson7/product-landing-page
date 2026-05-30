@@ -209,7 +209,8 @@ h1 {
 }
 
 #contacto input,
-#contacto textarea {
+#contacto textarea,
+#contacto select {
   padding: 0.75rem;
   border: 1px solid var(--color-border-input);
   border-radius: var(--radius-6);
@@ -223,7 +224,8 @@ h1 {
 }
 
 #contacto input:focus,
-#contacto textarea:focus {
+#contacto textarea:focus,
+#contacto select:focus {
   outline: none;
   border-color: var(--color-primary-dark);
   box-shadow: 0 0 0 3px var(--shadow-focus);
