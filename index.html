@@ -16,32 +16,72 @@
         <a href="index.html" class="logo"
           ><img src="img/logo-rivenpet.png" alt="logo"
         /></a>
+        <div class="nav-links">
+          <a href="index.html">Inicio</a>
+          <a href="precios.html">Precios</a>
+          <a href="#contacto">Contacto</a>
+          <a href="faq.html" id="icono-faq" aria-label="Preguntas frecuentes">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-help-circle"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+              <path d="M12 16v.01" />
+              <path
+                d="M12 13a2 2 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483"
+              />
+            </svg>
+          </a>
+        </div>
+        <button
+          class="btn-hamburger"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </header>
+
+    <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <nav>
         <a href="index.html">Inicio</a>
         <a href="precios.html">Precios</a>
         <a href="#contacto">Contacto</a>
-        <a href="faq.html" id="icono-faq" aria-label="Preguntas frecuentes">
+        <a href="faq.html" id="icono-faq-mobile" aria-label="Preguntas frecuentes">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-help-circle"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
             <path d="M12 16v.01" />
-            <path
-              d="M12 13a2 2 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483"
-            />
+            <path d="M12 13a2 2 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483" />
           </svg>
+          Preguntas frecuentes
         </a>
       </nav>
-    </header>
+    </div>
     <main>
       <section id="hero">
         <div>
@@ -252,5 +292,30 @@
         © 2026 Gefferson Casasola. Todos los derechos reservados.
       </p>
     </footer>
+    <script>
+      const hamburger = document.querySelector('.btn-hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const overlay = document.getElementById('nav-overlay');
+
+      function toggleMenu(open) {
+        hamburger.classList.toggle('is-open', open);
+        mobileMenu.classList.toggle('is-open', open);
+        overlay.classList.toggle('is-visible', open);
+        hamburger.setAttribute('aria-expanded', open);
+        mobileMenu.setAttribute('aria-hidden', !open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+
+      hamburger.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.contains('is-open');
+        toggleMenu(!isOpen);
+      });
+
+      overlay.addEventListener('click', () => toggleMenu(false));
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => toggleMenu(false));
+      });
+    </script>
   </body>
 </html>
