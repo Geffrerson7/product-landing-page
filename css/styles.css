@@ -603,6 +603,7 @@ footer {
 
 #content-precios p {
   color: var(--color-text-muted);
+  margin-top: var(--s7);
 }
 
 .planes {
