@@ -7,6 +7,9 @@
       content="Descubre comida premium para gatos elaborada con ingredientes nutritivos y balanceados. Dale a tu mascota una alimentación saludable y deliciosa."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css" />
     <title>RivenPet | Veterinaria y tienda para mascotas</title>
   </head>
@@ -84,40 +87,28 @@
     </div>
     <main>
       <section id="hero">
-        <div>
+        <div class="hero-text">
+          <p class="hero-eyebrow">Veterinaria & Tienda</p>
           <h1>
-            Cuidamos a tu mascota con
-            <span class="texto-destacado">
-              amor y bienestar
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="icon icon-tabler icons-tabler-outline icon-tabler-heart"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path
-                  d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
-                /></svg
-            ></span>
+            Cuidamos a tu<br />
+            mascota con<br />
+            <em class="texto-destacado">amor y<br />bienestar</em>
           </h1>
-
-          <p>
-            Veterinaria especializada en salud, nutrición y bienestar animal.
-            Encuentra alimentos premium, juguetes, accesorios y planes de
-            suscripción para consentir a tu mejor amigo.
+          <p class="hero-desc">
+            Salud, nutrición y bienestar animal. Alimentos premium,
+            accesorios y planes de suscripción para tu mejor amigo.
           </p>
+          <div class="hero-actions">
+            <a href="#contacto" class="btn btn-primary">Habla con nosotros</a>
+            <a href="precios.html" class="btn btn-ghost">Ver planes →</a>
+          </div>
         </div>
-        <img
-          src="img/hero.png"
-          alt="Gato atigrado sentado junto a un plato de comida para gatos en un entorno minimalista"
-        />
+        <div class="hero-image-wrap">
+          <img
+            src="img/hero.png"
+            alt="Gato atigrado sentado junto a un plato de comida para gatos en un entorno minimalista"
+          />
+        </div>
       </section>
       <section id="caracteristicas">
         <h2>Nuestros Servicios</h2>
