@@ -603,7 +603,6 @@ footer {
 
 #content-precios p {
   color: var(--color-text-muted);
-  margin-top: var(--s7);
 }
 
 .planes {
@@ -742,41 +741,125 @@ footer {
 
 .faq-nav {
   grid-area: nav;
-
-  padding: var(--s6);
+  padding: var(--s5);
   margin: 0 var(--s5);
-
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-12);
-
   box-shadow: var(--shadow-sm);
+  align-self: start;
 }
 
-.faq-nav h2 {
-  margin-bottom: var(--s5);
-  color: var(--color-secondary);
-}
-
-.faq-nav ul {
-  list-style: none;
-  padding: 0;
-}
-
-.faq-nav li + li {
-  margin-top: var(--s4);
-}
-
-.faq-nav a {
-  color: var(--color-text);
-  text-decoration: none;
+.faq-nav-label {
+  font-size: var(--text-sm);
   font-weight: 600;
-
-  transition: color var(--transition-fast);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding: 0 var(--s3) var(--s4);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--s3);
 }
 
-.faq-nav a:hover {
+/* Cada grupo del acordeón */
+.faq-nav-group {
+  border-radius: var(--radius-8);
+  overflow: hidden;
+}
+
+.faq-nav-group + .faq-nav-group {
+  margin-top: var(--s2);
+}
+
+.faq-nav-group summary {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s4) var(--s4);
+  font-weight: 600;
+  font-size: var(--text-base);
+  color: var(--color-text);
+  cursor: pointer;
+  list-style: none;
+  border-radius: var(--radius-8);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+  position: relative;
+}
+
+.faq-nav-group summary::-webkit-details-marker { display: none; }
+
+/* Chevron via pseudo-element */
+.faq-nav-group summary::after {
+  content: '';
+  position: absolute;
+  right: var(--s4);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--color-text-muted);
+  border-bottom: 2px solid var(--color-text-muted);
+  rotate: 45deg;
+  transition: rotate var(--transition-fast), border-color var(--transition-fast);
+}
+
+.faq-nav-group[open] summary::after {
+  rotate: -135deg;
+}
+
+.faq-nav-group summary:hover {
+  background-color: var(--color-bg);
   color: var(--color-primary-dark);
+}
+
+.faq-nav-group summary:hover::after {
+  border-color: var(--color-primary-dark);
+}
+
+.faq-nav-group[open] > summary {
+  color: var(--color-primary-dark);
+  background-color: var(--color-bg);
+}
+
+.faq-nav-group[open] > summary::after {
+  border-color: var(--color-primary-dark);
+}
+
+.faq-nav-group svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* Links dentro del acordeón */
+.faq-nav-group ul {
+  list-style: none;
+  padding: var(--s2) var(--s3) var(--s3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+}
+
+.faq-nav-group ul li a {
+  display: block;
+  padding: var(--s3) var(--s4);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border-radius: var(--radius-6);
+  border-left: 2px solid transparent;
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.faq-nav-group ul li a:hover {
+  color: var(--color-primary-dark);
+  background-color: var(--color-bg);
+  border-left-color: var(--color-primary-dark);
 }
 
 .faq-main {
