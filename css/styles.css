@@ -53,7 +53,24 @@
   --radius-8: 8px;
   --radius-12: 12px;
 
-  /* ===== Transiciones ===== */
+  /* ===== Escala de espaciado exponencial (ratio ×1.5) ===== */
+  /* s1=4 → s2=6 → s3=8 → s4=12 → s5=16 → s6=24 → s7=36 → s8=56 → s9=80 → s10=120 */
+  --s1:  0.25rem;   /*  4px  — separadores mínimos, iconos */
+  --s2:  0.375rem;  /*  6px  — gap inline */
+  --s3:  0.5rem;    /*  8px  — gap pequeño, padding xs */
+  --s4:  0.75rem;   /* 12px  — padding inputs, gap interno */
+  --s5:  1rem;      /* 16px  — padding base, gap cards */
+  --s6:  1.5rem;    /* 24px  — padding secciones internas */
+  --s7:  2.25rem;   /* 36px  — gap entre bloques */
+  --s8:  3.5rem;    /* 56px  — padding secciones */
+  --s9:  5rem;      /* 80px  — margen entre secciones grandes */
+  --s10: 7.5rem;    /* 120px — espaciado máximo / hero */
+
+  /* Espacio de sección fluido: crece con el viewport */
+  --section-pad-y: clamp(var(--s8), 8vw, var(--s10));
+  --section-pad-x: clamp(var(--s6), 5vw, var(--s9));
+
+
   --transition-fast: 0.2s ease;
   --transition-medium: 0.25s ease;
   --transition-normal: 0.3s ease;
@@ -70,8 +87,8 @@ body {
 header nav {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  padding: 1rem 2rem;
+  gap: var(--s7);
+  padding: var(--s5) var(--section-pad-x);
 }
 
 nav a {
@@ -103,7 +120,7 @@ header nav .logo img {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: var(--s7);
 }
 
 .btn-hamburger {
@@ -178,7 +195,7 @@ header nav .logo img {
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
   box-shadow: var(--shadow-md);
-  padding: 5rem 2rem 2rem;
+  padding: var(--s9) var(--s6) var(--s6);
   transform: translateY(-100%);
   transition: transform var(--transition-medium);
 }
@@ -190,12 +207,12 @@ header nav .logo img {
 .mobile-menu nav {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: var(--s1);
 }
 
 .mobile-menu nav a {
   display: block;
-  padding: 0.85rem 1rem;
+  padding: var(--s4) var(--s5);
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--color-text);
@@ -234,8 +251,8 @@ header nav .logo img {
 #hero {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
-  padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem);
+  gap: var(--s8);
+  padding: var(--section-pad-y) var(--section-pad-x);
   min-height: 85vh;
   align-items: center;
   overflow: hidden;
@@ -261,7 +278,7 @@ header nav .logo img {
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--s6);
 }
 
 .hero-eyebrow {
@@ -298,13 +315,13 @@ h1 em.texto-destacado {
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 0.5rem;
+  gap: var(--s5);
+  margin-top: var(--s3);
 }
 
 .btn {
   display: inline-block;
-  padding: 0.85rem 1.75rem;
+  padding: var(--s4) var(--s7);
   font-family: var(--font-text);
   font-size: var(--text-base);
   font-weight: 600;
@@ -369,21 +386,21 @@ h3 {
 }
 
 #caracteristicas {
-  padding: 2rem;
+  padding: var(--section-pad-y) var(--section-pad-x);
   text-align: center;
 }
 
 .cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 16px;
+  gap: var(--s5);
+  margin-top: var(--s6);
 }
 
 .card {
   flex-basis: 280px;
   flex-grow: 1;
-  padding: 1rem;
+  padding: var(--s6);
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-8);
   background: var(--color-surface);
@@ -399,15 +416,15 @@ h3 {
 }
 
 #galeria {
-  padding: 32px;
+  padding: var(--section-pad-y) var(--section-pad-x);
   text-align: center;
 }
 
 .galeria {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 16px;
+  gap: var(--s3);
+  margin-top: var(--s6);
 }
 
 .galeria figure {
@@ -440,21 +457,21 @@ h3 {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 3rem 2rem;
+  padding: var(--section-pad-y) var(--section-pad-x);
 }
 
 #contacto h2 {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--s7);
 }
 
 #contacto form {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--s4);
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: var(--s8);
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-12);
@@ -469,7 +486,7 @@ h3 {
 #contacto input,
 #contacto textarea,
 #contacto select {
-  padding: 0.75rem;
+  padding: var(--s4);
   border: 1px solid var(--color-border-input);
   border-radius: var(--radius-6);
   font: inherit;
@@ -490,8 +507,8 @@ h3 {
 }
 
 #contacto button {
-  margin-top: 1rem;
-  padding: 0.75rem;
+  margin-top: var(--s5);
+  padding: var(--s4);
   background: var(--color-primary);
   color: var(--color-text-light);
   border: none;
@@ -513,8 +530,8 @@ h3 {
 footer {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 2rem;
+  gap: var(--s5);
+  padding: var(--s8) var(--section-pad-x);
   background-color: var(--color-footer);
   border-top: 1px solid var(--color-border);
 }
@@ -523,13 +540,13 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: var(--s5);
   text-align: center;
 }
 
 .redes {
   display: flex;
-  gap: 1rem;
+  gap: var(--s5);
 }
 
 .redes a {
@@ -555,8 +572,8 @@ footer {
 .footer-legal {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  padding-top: 1rem;
+  gap: var(--s7);
+  padding-top: var(--s5);
   border-top: 1px solid var(--color-border);
   flex-wrap: wrap;
 }
@@ -581,7 +598,7 @@ footer {
 
 #content-precios {
   text-align: center;
-  padding: 2rem;
+  padding: var(--section-pad-y) var(--section-pad-x) var(--s6);
 }
 
 #content-precios p {
@@ -590,8 +607,8 @@ footer {
 
 .planes {
   display: grid;
-  gap: 24px;
-  padding: 32px;
+  gap: var(--s6);
+  padding: 0 var(--section-pad-x) var(--section-pad-y);
   margin: 0 auto;
 }
 
@@ -601,7 +618,7 @@ footer {
   align-items: center;
   justify-content: space-between;
 
-  padding: 24px;
+  padding: var(--s7);
   background: var(--color-surface);
 
   border: 1px solid var(--color-border-light);
@@ -627,16 +644,16 @@ footer {
   font-size: 2rem;
   font-weight: 700;
   color: var(--color-primary-dark);
-  margin: 16px 0;
+  margin: var(--s5) 0;
 }
 
 .plan ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--s4);
 
-  margin: 1rem 0;
+  margin: var(--s5) 0;
   padding: 0;
 }
 
@@ -647,7 +664,7 @@ footer {
 .plan a {
   display: inline-block;
 
-  padding: 0.75rem 1rem;
+  padding: var(--s4) var(--s5);
 
   color: var(--color-text-light);
   background-color: var(--color-primary);
@@ -668,23 +685,23 @@ footer {
 }
 
 .clientes {
-  padding: 32px;
+  padding: var(--section-pad-y) var(--section-pad-x);
   text-align: center;
 }
 
 .clientes h2 {
-  margin-bottom: 1rem;
+  margin-bottom: var(--s5);
 }
 
 .logos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 16px;
-  margin-top: 16px;
+  gap: var(--s5);
+  margin-top: var(--s6);
 }
 
 .logo-cliente {
-  padding: 24px;
+  padding: var(--s6);
 
   background: var(--color-bg-soft);
 
@@ -714,7 +731,7 @@ footer {
     "main"
     "footer";
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: var(--s5);
   min-height: 100vh;
 }
 
@@ -724,59 +741,143 @@ footer {
 
 .faq-nav {
   grid-area: nav;
-
-  padding: 24px;
-  margin: 0 16px;
-
+  padding: var(--s5);
+  margin: 0 var(--s5);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-12);
-
   box-shadow: var(--shadow-sm);
+  align-self: start;
 }
 
-.faq-nav h2 {
-  margin-bottom: 1rem;
-  color: var(--color-secondary);
-}
-
-.faq-nav ul {
-  list-style: none;
-  padding: 0;
-}
-
-.faq-nav li + li {
-  margin-top: 0.75rem;
-}
-
-.faq-nav a {
-  color: var(--color-text);
-  text-decoration: none;
+.faq-nav-label {
+  font-size: var(--text-sm);
   font-weight: 600;
-
-  transition: color var(--transition-fast);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding: 0 var(--s3) var(--s4);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--s3);
 }
 
-.faq-nav a:hover {
+/* Cada grupo del acordeón */
+.faq-nav-group {
+  border-radius: var(--radius-8);
+  overflow: hidden;
+}
+
+.faq-nav-group + .faq-nav-group {
+  margin-top: var(--s2);
+}
+
+.faq-nav-group summary {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s4) var(--s4);
+  font-weight: 600;
+  font-size: var(--text-base);
+  color: var(--color-text);
+  cursor: pointer;
+  list-style: none;
+  border-radius: var(--radius-8);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+  position: relative;
+}
+
+.faq-nav-group summary::-webkit-details-marker { display: none; }
+
+/* Chevron via pseudo-element */
+.faq-nav-group summary::after {
+  content: '';
+  position: absolute;
+  right: var(--s4);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--color-text-muted);
+  border-bottom: 2px solid var(--color-text-muted);
+  rotate: 45deg;
+  transition: rotate var(--transition-fast), border-color var(--transition-fast);
+}
+
+.faq-nav-group[open] summary::after {
+  rotate: -135deg;
+}
+
+.faq-nav-group summary:hover {
+  background-color: var(--color-bg);
   color: var(--color-primary-dark);
+}
+
+.faq-nav-group summary:hover::after {
+  border-color: var(--color-primary-dark);
+}
+
+.faq-nav-group[open] > summary {
+  color: var(--color-primary-dark);
+  background-color: var(--color-bg);
+}
+
+.faq-nav-group[open] > summary::after {
+  border-color: var(--color-primary-dark);
+}
+
+.faq-nav-group svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* Links dentro del acordeón */
+.faq-nav-group ul {
+  list-style: none;
+  padding: var(--s2) var(--s3) var(--s3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+}
+
+.faq-nav-group ul li a {
+  display: block;
+  padding: var(--s3) var(--s4);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border-radius: var(--radius-6);
+  border-left: 2px solid transparent;
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.faq-nav-group ul li a:hover {
+  color: var(--color-primary-dark);
+  background-color: var(--color-bg);
+  border-left-color: var(--color-primary-dark);
 }
 
 .faq-main {
   grid-area: main;
-  padding: 16px;
+  padding: var(--s5);
 }
 
 .faq-layout h1 {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: var(--s8);
 }
 
 .faq-main section {
-  margin-bottom: 2rem;
+  margin-bottom: var(--s8);
 }
 
 .faq-main h2 {
-  margin-bottom: 1rem;
+  margin-bottom: var(--s5);
   color: var(--color-secondary);
 }
 
@@ -786,8 +887,8 @@ footer {
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-8);
 
-  margin-bottom: 1rem;
-  padding: 1rem;
+  margin-bottom: var(--s5);
+  padding: var(--s5);
 
   transition:
     box-shadow var(--transition-fast),
@@ -831,7 +932,32 @@ footer {
   grid-area: footer;
 }
 
-/* ===== TABLET (640px en adelante) ===== */
+/* ========================= REVEAL ANIMATIONS ========================= */
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    opacity: 0;
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--delay, 0ms);
+  }
+
+  [data-reveal="up"]    { transform: translateY(40px); }
+  [data-reveal="down"]  { transform: translateY(-24px); }
+  [data-reveal="left"]  { transform: translateX(40px); }
+  [data-reveal="right"] { transform: translateX(-40px); }
+  [data-reveal="scale"] { transform: scale(0.92); }
+  [data-reveal="fade"]  { transform: none; }
+
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ========================= MEDIA QUERIES ========================= */
+
 @media (min-width: 640px) {
   #contacto form {
     max-width: 600px;
@@ -857,18 +983,17 @@ footer {
   #hero {
     grid-template-columns: 1fr 1fr;
     min-height: 90vh;
-    gap: 4rem;
+    gap: var(--s9);
   }
   #hero img {
     max-width: 100%;
     border-radius: var(--radius-12);
   }
   .hero-image-wrap {
-    /* desplaza la imagen ligeramente fuera del grid para tensión asimétrica */
     margin-right: clamp(-2rem, -3vw, -4rem);
   }
   #contacto {
-    padding: 4rem 2rem;
+    padding: var(--s10) var(--section-pad-x);
   }
   .galeria figure {
     flex: 0 0 calc(25% - 6px);
