@@ -7,6 +7,9 @@
       content="Descubre comida premium para gatos elaborada con ingredientes nutritivos y balanceados. Dale a tu mascota una alimentación saludable y deliciosa."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css" />
     <title>RivenPet | Veterinaria y tienda para mascotas</title>
   </head>
@@ -84,87 +87,69 @@
     </div>
     <main>
       <section id="hero">
-        <div>
-          <h1>
-            Cuidamos a tu mascota con
-            <span class="texto-destacado">
-              amor y bienestar
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="icon icon-tabler icons-tabler-outline icon-tabler-heart"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path
-                  d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
-                /></svg
-            ></span>
+        <div class="hero-text">
+          <p class="hero-eyebrow" data-reveal="up" style="--delay:0ms">Veterinaria & Tienda</p>
+          <h1 data-reveal="up" style="--delay:80ms">
+            Cuidamos a tu<br />
+            mascota con<br />
+            <em class="texto-destacado">amor y<br />bienestar</em>
           </h1>
-
-          <p>
-            Veterinaria especializada en salud, nutrición y bienestar animal.
-            Encuentra alimentos premium, juguetes, accesorios y planes de
-            suscripción para consentir a tu mejor amigo.
+          <p class="hero-desc" data-reveal="up" style="--delay:160ms">
+            Salud, nutrición y bienestar animal. Alimentos premium,
+            accesorios y planes de suscripción para tu mejor amigo.
           </p>
+          <div class="hero-actions" data-reveal="up" style="--delay:240ms">
+            <a href="#contacto" class="btn btn-primary">Habla con nosotros</a>
+            <a href="precios.html" class="btn btn-ghost">Ver planes →</a>
+          </div>
         </div>
-        <img
-          src="img/hero.png"
-          alt="Gato atigrado sentado junto a un plato de comida para gatos en un entorno minimalista"
-        />
+        <div class="hero-image-wrap" data-reveal="scale" style="--delay:200ms">
+          <img
+            src="img/hero.png"
+            alt="Gato atigrado sentado junto a un plato de comida para gatos en un entorno minimalista"
+          />
+        </div>
       </section>
       <section id="caracteristicas">
-        <h2>Nuestros Servicios</h2>
+        <h2 data-reveal="up">Nuestros Servicios</h2>
 
         <div class="cards">
-          <article class="card">
+          <article class="card" data-reveal="up" style="--delay:0ms">
             <img
               src="img/veterinaria.svg"
               alt="Icono de atención veterinaria"
               width="48"
               height="48"
             />
-
             <h3>Atención veterinaria especializada</h3>
-
             <p>
               Contamos con profesionales capacitados para cuidar la salud y
               bienestar de tu mascota en cada etapa de su vida.
             </p>
           </article>
 
-          <article class="card">
+          <article class="card" data-reveal="up" style="--delay:100ms">
             <img
               src="img/productos.svg"
               alt="Icono de productos para mascotas"
               width="48"
               height="48"
             />
-
             <h3>Alimentos, juguetes y accesorios</h3>
-
             <p>
               Encuentra productos premium para perros y gatos, desde alimento
               balanceado hasta juguetes y accesorios de calidad.
             </p>
           </article>
 
-          <article class="card">
+          <article class="card" data-reveal="up" style="--delay:200ms">
             <img
               src="img/suscripcion.svg"
               alt="Icono de suscripción para mascotas"
               width="48"
               height="48"
             />
-
             <h3>Planes de suscripción mensual</h3>
-
             <p>
               Recibe alimento y productos esenciales automáticamente en tu hogar
               con nuestros planes personalizados para mascotas.
@@ -173,15 +158,15 @@
         </div>
       </section>
       <section id="galeria">
-        <h2>Galería</h2>
+        <h2 data-reveal="up">Galería</h2>
 
         <div class="galeria">
-          <figure>
+          <figure data-reveal="scale" style="--delay:0ms">
             <img src="img/royal-canin-cardiac.jpg" alt="Royal Canin Cardiac" />
             <figcaption>Royal Canin Cardiac</figcaption>
           </figure>
 
-          <figure>
+          <figure data-reveal="scale" style="--delay:80ms">
             <img
               src="img/royal-canin-hypoallergenic.jpg"
               alt="Royal Canin Hypoallergenic"
@@ -189,7 +174,7 @@
             <figcaption>Royal Canin Hypoallergenic</figcaption>
           </figure>
 
-          <figure>
+          <figure data-reveal="scale" style="--delay:160ms">
             <img
               src="img/royal-canin-mobility.jpg"
               alt="Royal Canin Mobility"
@@ -197,7 +182,7 @@
             <figcaption>Royal Canin Mobility</figcaption>
           </figure>
 
-          <figure>
+          <figure data-reveal="scale" style="--delay:240ms">
             <img
               src="img/royal-canin-sensitivity-control.png"
               alt="Royal Canin Sensitivity Control"
@@ -207,8 +192,8 @@
         </div>
       </section>
       <section id="contacto">
-        <h2>Contáctanos</h2>
-        <form>
+        <h2 data-reveal="up">Contáctanos</h2>
+        <form data-reveal="up" style="--delay:100ms">
           <label for="nombre">Nombre (mín. 3 caracteres)</label>
           <input
             type="text"
@@ -293,6 +278,7 @@
       </p>
     </footer>
     <script>
+      /* ── Hamburger ── */
       const hamburger = document.querySelector('.btn-hamburger');
       const mobileMenu = document.getElementById('mobile-menu');
       const overlay = document.getElementById('nav-overlay');
@@ -306,16 +292,24 @@
         document.body.style.overflow = open ? 'hidden' : '';
       }
 
-      hamburger.addEventListener('click', () => {
-        const isOpen = mobileMenu.classList.contains('is-open');
-        toggleMenu(!isOpen);
-      });
-
+      hamburger.addEventListener('click', () => toggleMenu(!mobileMenu.classList.contains('is-open')));
       overlay.addEventListener('click', () => toggleMenu(false));
+      mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => toggleMenu(false)));
 
-      mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => toggleMenu(false));
-      });
+      /* ── Reveal on scroll ── */
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -48px 0px' }
+      );
+
+      document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
     </script>
   </body>
 </html>

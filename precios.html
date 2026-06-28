@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css" />
     <title>RivenPet | Precios</title>
   </head>
@@ -80,11 +83,11 @@
     </div>
     <main>
       <div id="content-precios">
-        <h1>Planes y precios</h1>
-        <p>Elige el plan que mejor se ajuste a tu necesidad.</p>
+        <h1 data-reveal="up">Planes y precios</h1>
+        <p data-reveal="up" style="--delay:80ms">Elige el plan que mejor se ajuste a tu necesidad.</p>
       </div>
       <div class="planes">
-        <article class="plan">
+        <article class="plan" data-reveal="up" style="--delay:0ms">
           <h2>Esencial</h2>
           <p class="precio">$9/mes</p>
           <ul>
@@ -95,7 +98,7 @@
           <a href="#" class="btn">Elegir plan</a>
         </article>
 
-        <article class="plan">
+        <article class="plan" data-reveal="up" style="--delay:80ms">
           <h2>Bienestar</h2>
           <p class="precio">$19/mes</p>
           <ul>
@@ -106,7 +109,7 @@
           <a href="#" class="btn">Elegir plan</a>
         </article>
 
-        <article class="plan">
+        <article class="plan" data-reveal="up" style="--delay:160ms">
           <h2>Premium</h2>
           <p class="precio">$39/mes</p>
           <ul>
@@ -117,7 +120,7 @@
           <a href="#" class="btn">Elegir plan</a>
         </article>
 
-        <article class="plan">
+        <article class="plan" data-reveal="up" style="--delay:240ms">
           <h2>Familia Mascotera</h2>
           <p class="precio">$69/mes</p>
           <ul>
@@ -129,15 +132,15 @@
         </article>
       </div>
       <section class="clientes">
-        <h2>Trabajamos con las mejores marcas</h2>
+        <h2 data-reveal="up">Trabajamos con las mejores marcas</h2>
 
         <div class="logos">
-          <div class="logo-cliente">Royal Canin</div>
-          <div class="logo-cliente">Pro Plan</div>
-          <div class="logo-cliente">Hill's</div>
-          <div class="logo-cliente">Pedigree</div>
-          <div class="logo-cliente">Whiskas</div>
-          <div class="logo-cliente">Bravecto</div>
+          <div class="logo-cliente" data-reveal="scale" style="--delay:0ms">Royal Canin</div>
+          <div class="logo-cliente" data-reveal="scale" style="--delay:60ms">Pro Plan</div>
+          <div class="logo-cliente" data-reveal="scale" style="--delay:120ms">Hill's</div>
+          <div class="logo-cliente" data-reveal="scale" style="--delay:180ms">Pedigree</div>
+          <div class="logo-cliente" data-reveal="scale" style="--delay:240ms">Whiskas</div>
+          <div class="logo-cliente" data-reveal="scale" style="--delay:300ms">Bravecto</div>
         </div>
       </section>
     </main>
@@ -174,6 +177,7 @@
       </p>
     </footer>
     <script>
+      /* ── Hamburger ── */
       const hamburger = document.querySelector('.btn-hamburger');
       const mobileMenu = document.getElementById('mobile-menu');
       const overlay = document.getElementById('nav-overlay');
@@ -187,16 +191,24 @@
         document.body.style.overflow = open ? 'hidden' : '';
       }
 
-      hamburger.addEventListener('click', () => {
-        const isOpen = mobileMenu.classList.contains('is-open');
-        toggleMenu(!isOpen);
-      });
-
+      hamburger.addEventListener('click', () => toggleMenu(!mobileMenu.classList.contains('is-open')));
       overlay.addEventListener('click', () => toggleMenu(false));
+      mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => toggleMenu(false)));
 
-      mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => toggleMenu(false));
-      });
+      /* ── Reveal on scroll ── */
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -48px 0px' }
+      );
+
+      document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
     </script>
   </body>
 </html>
