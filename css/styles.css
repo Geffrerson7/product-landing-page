@@ -6,8 +6,8 @@
 
 :root {
   /* Tipografía */
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-text: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-text: "DM Sans", system-ui, -apple-system, sans-serif;
 
   /* Escala tipográfica fluida */
   --text-sm: clamp(0.8rem, 1.5vw, 0.875rem);
@@ -18,27 +18,28 @@
   --text-hero: clamp(2.8rem, 7vw, 5.5rem);
 
   /* ===== Colores principales ===== */
-  --color-primary: #E98D75;
-  --color-primary-dark: #FF7A59;
+  --color-primary: #e98d75;
+  --color-primary-dark: #ff7a59;
 
   /* ===== Colores secundarios ===== */
-  --color-secondary: #5F6B3D;
-  --color-secondary-light: #7B8A52;
+  --color-secondary: #5f6b3d;
+  --color-secondary-light: #7b8a52;
 
   /* ===== Fondos ===== */
-  --color-bg: #F9F2EF;
-  --color-surface: #FBF7F4;
-  --color-footer: #F3ECE4;
-  --color-bg-soft: #f5f5f5;    
+  --color-bg: #f9f2ef;
+  --color-surface: #fbf7f4;
+  --color-footer: #f3ece4;
+  --color-bg-soft: #f5f5f5;
+  --color-dark: #1a1a1a;
 
   /* ===== Texto ===== */
-  --color-text: #1A1A1A;
+  --color-text: #1a1a1a;
   --color-text-muted: #666666;
-  --color-text-light: #FFF;
+  --color-text-light: #fff;
 
   /* ===== Bordes ===== */
-  --color-border: #E6DDD3;
-  --color-border-light: #E0E0E0;
+  --color-border: #e6ddd3;
+  --color-border-light: #e0e0e0;
   --color-border-input: #d8d8d8;
 
   /* ===== Sombras ===== */
@@ -55,21 +56,20 @@
 
   /* ===== Escala de espaciado exponencial (ratio ×1.5) ===== */
   /* s1=4 → s2=6 → s3=8 → s4=12 → s5=16 → s6=24 → s7=36 → s8=56 → s9=80 → s10=120 */
-  --s1:  0.25rem;   /*  4px  — separadores mínimos, iconos */
-  --s2:  0.375rem;  /*  6px  — gap inline */
-  --s3:  0.5rem;    /*  8px  — gap pequeño, padding xs */
-  --s4:  0.75rem;   /* 12px  — padding inputs, gap interno */
-  --s5:  1rem;      /* 16px  — padding base, gap cards */
-  --s6:  1.5rem;    /* 24px  — padding secciones internas */
-  --s7:  2.25rem;   /* 36px  — gap entre bloques */
-  --s8:  3.5rem;    /* 56px  — padding secciones */
-  --s9:  5rem;      /* 80px  — margen entre secciones grandes */
-  --s10: 7.5rem;    /* 120px — espaciado máximo / hero */
+  --s1: 0.25rem; /*  4px  — separadores mínimos, iconos */
+  --s2: 0.375rem; /*  6px  — gap inline */
+  --s3: 0.5rem; /*  8px  — gap pequeño, padding xs */
+  --s4: 0.75rem; /* 12px  — padding inputs, gap interno */
+  --s5: 1rem; /* 16px  — padding base, gap cards */
+  --s6: 1.5rem; /* 24px  — padding secciones internas */
+  --s7: 2.25rem; /* 36px  — gap entre bloques */
+  --s8: 3.5rem; /* 56px  — padding secciones */
+  --s9: 5rem; /* 80px  — margen entre secciones grandes */
+  --s10: 7.5rem; /* 120px — espaciado máximo / hero */
 
   /* Espacio de sección fluido: crece con el viewport */
   --section-pad-y: clamp(var(--s8), 8vw, var(--s10));
   --section-pad-x: clamp(var(--s6), 5vw, var(--s9));
-
 
   --transition-fast: 0.2s ease;
   --transition-medium: 0.25s ease;
@@ -283,13 +283,17 @@ header nav .logo img {
 
 /* Acento decorativo de fondo */
 #hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -10%;
   right: -5%;
   width: clamp(280px, 45vw, 560px);
   height: clamp(280px, 45vw, 560px);
-  background: radial-gradient(circle, rgba(233, 141, 117, 0.18) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(233, 141, 117, 0.18) 0%,
+    transparent 70%
+  );
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -410,6 +414,11 @@ h3 {
 #caracteristicas {
   padding: var(--section-pad-y) var(--section-pad-x);
   text-align: center;
+  background-color: var(--color-dark);
+}
+
+#caracteristicas h2 {
+  color: #f9f2ef;
 }
 
 .cards {
@@ -420,21 +429,38 @@ h3 {
 }
 
 .card {
+  color: var(--color-primary);
   flex-basis: 280px;
   flex-grow: 1;
   padding: var(--s6);
-  border: 1px solid var(--color-border-light);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-8);
-  background: var(--color-surface);
+  background: rgba(255, 255, 255, 0.05);
   text-align: center;
   transition:
     transform var(--transition-medium),
-    box-shadow var(--transition-medium);
+    box-shadow var(--transition-medium),
+    background-color var(--transition-medium);
+}
+
+.card h3 {
+  color: var(--color-primary);
+}
+
+.card p {
+  color: rgba(249, 242, 239, 0.7);
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 24px var(--shadow-md);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  color: var(--color-primary-dark);
+  border-top: 2px solid var(--color-primary);
+}
+
+.card:hover h3 {
+  color: var(--color-primary-dark);
 }
 
 #galeria {
@@ -473,6 +499,126 @@ h3 {
   margin-top: 8px;
   font-size: 0.9rem;
 }
+
+/* ========================= SECCIÓN OSCURA DE CONTRASTE ========================= */
+
+#confianza {
+  background-color: var(--color-dark);
+  padding: var(--section-pad-y) var(--section-pad-x);
+  position: relative;
+  overflow: hidden;
+}
+
+#confianza::before {
+  content: "";
+  position: absolute;
+  bottom: -15%;
+  left: -5%;
+  width: clamp(240px, 40vw, 480px);
+  height: clamp(240px, 40vw, 480px);
+  background: radial-gradient(
+    circle,
+    rgba(233, 141, 117, 0.12) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.confianza-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s7);
+  text-align: center;
+}
+
+.confianza-eyebrow {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+#confianza h2 {
+  color: #f9f2ef;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  line-height: 1.1;
+}
+
+#confianza h2 em {
+  font-style: italic;
+  color: var(--color-primary);
+}
+
+.testimonios {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s6);
+  width: 100%;
+}
+
+.testimonio {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-12);
+  padding: var(--s6);
+  text-align: left;
+  margin: 0;
+  transition: background-color var(--transition-medium);
+}
+
+.testimonio:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.testimonio blockquote {
+  font-size: var(--text-base);
+  line-height: 1.75;
+  color: rgba(249, 242, 239, 0.8);
+  font-style: normal;
+  margin: 0 0 var(--s5);
+}
+
+.testimonio figcaption {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.btn-confianza {
+  display: inline-block;
+  padding: var(--s4) var(--s7);
+  background: transparent;
+  color: #f9f2ef;
+  border: 1.5px solid rgba(249, 242, 239, 0.3);
+  border-radius: var(--radius-6);
+  font-family: var(--font-text);
+  font-size: var(--text-base);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.btn-confianza:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+@media (min-width: 640px) {
+  .testimonios {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ========================= CONTACTO ========================= */
 
 #contacto {
   display: flex;
@@ -773,7 +919,7 @@ main {
 .faq-nav {
   grid-area: nav;
   padding: var(--s5);
-  margin: 0 var(--s5);
+  margin: var(--s10) var(--s5);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-12);
@@ -819,11 +965,13 @@ main {
   position: relative;
 }
 
-.faq-nav-group summary::-webkit-details-marker { display: none; }
+.faq-nav-group summary::-webkit-details-marker {
+  display: none;
+}
 
 /* Chevron via pseudo-element */
 .faq-nav-group summary::after {
-  content: '';
+  content: "";
   position: absolute;
   right: var(--s4);
   top: 50%;
@@ -833,7 +981,9 @@ main {
   border-right: 2px solid var(--color-text-muted);
   border-bottom: 2px solid var(--color-text-muted);
   rotate: 45deg;
-  transition: rotate var(--transition-fast), border-color var(--transition-fast);
+  transition:
+    rotate var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
 .faq-nav-group[open] summary::after {
@@ -974,12 +1124,24 @@ main {
     transition-delay: var(--delay, 0ms);
   }
 
-  [data-reveal="up"]    { transform: translateY(40px); }
-  [data-reveal="down"]  { transform: translateY(-24px); }
-  [data-reveal="left"]  { transform: translateX(40px); }
-  [data-reveal="right"] { transform: translateX(-40px); }
-  [data-reveal="scale"] { transform: scale(0.92); }
-  [data-reveal="fade"]  { transform: none; }
+  [data-reveal="up"] {
+    transform: translateY(40px);
+  }
+  [data-reveal="down"] {
+    transform: translateY(-24px);
+  }
+  [data-reveal="left"] {
+    transform: translateX(40px);
+  }
+  [data-reveal="right"] {
+    transform: translateX(-40px);
+  }
+  [data-reveal="scale"] {
+    transform: scale(0.92);
+  }
+  [data-reveal="fade"] {
+    transform: none;
+  }
 
   [data-reveal].is-visible {
     opacity: 1;
